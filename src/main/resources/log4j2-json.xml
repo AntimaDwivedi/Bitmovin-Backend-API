@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="WARN">
+
+    <Properties>
+        <Property name="PID">????</Property>
+        <Property name="LOG_EXCEPTION_CONVERSION_WORD">%xwEx</Property>
+        <Property name="LOG_PATTERN">{"from":"application" , "timeStamp":"%d{yyyy-MM-dd HH:mm:ss.SSS}","type":"%5p", "thread": "%t", "class" : "%c" ,"x_session_id":"%X{xSessionId}","x_request_id": "%X{xRequestId}" , "message" : "%replace{%m}{[\"\""'"]}{}"}%n</Property>
+        <Property name="LOG_LEVEL">${env:APP_LOG_LEVEL:-INFO}</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <AsyncLogger name="org.apache.catalina.startup.DigesterFactory" level="error"/>
+        <AsyncLogger name="org.apache.catalina.util.LifecycleBase" level="error"/>
+        <AsyncLogger name="org.apache.coyote.http11.Http11NioProtocol" level="warn"/>
+        <AsyncLogger name="org.apache.sshd.common.util.SecurityUtils" level="warn"/>
+        <AsyncLogger name="org.apache.tomcat.util.net.NioSelectorPool" level="warn"/>
+        <AsyncLogger name="org.crsh.plugin" level="warn"/>
+        <AsyncLogger name="org.crsh.ssh" level="warn"/>
+        <AsyncLogger name="org.hibernate.validator.internal.util.Version" level="warn"/>
+        <AsyncLogger name="org.springframework.boot.actuate.autoconfigure.CrshAutoConfiguration" level="warn"/>
+        <AsyncLogger name="org.springframework.boot.actuate.endpoint.jmx" level="warn"/>
+        <AsyncRoot level="${LOG_LEVEL}">
+            <AppenderRef ref="Console"/>
+        </AsyncRoot>
+    </Loggers>
+</Configuration>

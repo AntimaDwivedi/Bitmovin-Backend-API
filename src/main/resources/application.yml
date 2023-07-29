@@ -1,0 +1,7 @@
+bitmovinconfig:
+    encVersion: ${BITMOVIN_ENC_VERSION:2.145.0}
+    apiKey: ${BITMOVIN_API_KEY:a03b33da-f111-4586-9611-ee56207ad619}
+    inputId: ${LOW_RES_HIGH_RES_BUCKET_INPUT_ID:05cbd4af-a22f-467a-ac57-8658086d3402}
+    outputId: ${LOW_RES_HIGH_RES_BUCKET_OUTPUT_ID:52564029-e19b-467b-aea1-d74285d0b23e}
+
+
